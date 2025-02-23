@@ -32,7 +32,7 @@ export class UserController {
 
     // Método para obtener todos los usuarios.
     public async getAll(
-        req: Request,
+        _req: Request,
         res: Response
     ): Promise<Response> {
         try {
@@ -41,12 +41,7 @@ export class UserController {
                 await this.service.getAll();
 
             // Si no se encontraron usuarios, devuelve un error 404.
-            if (!data) {
-                return res.status(404).json({
-                    message: "No Users Found",
-                    data: [],
-                });
-            }
+            if (!data) return res.status(404).json("No Users Found");
 
             // Formatea los datos para mostrar solo los campos deseados.
             const formattedData = data.map((user) => ({
@@ -62,10 +57,7 @@ export class UserController {
             }));
 
             // Si los usuarios fueron encontrados, los devuelve con un mensaje de éxito.
-            return res.status(200).json({
-                message: "Users Fetched Successfully",
-                formattedData,
-            });
+            return res.status(200).json(formattedData);
         } catch (error) {
             // Maneja cualquier error inesperado y devuelve un mensaje de error.
             return res.status(500).json({
@@ -91,27 +83,19 @@ export class UserController {
             const data = await this.service.getById(id);
 
             // Si no se encuentra el usuario, devuelve un error 404.
-            if (!data) {
-                return res.status(404).json({
-                    message: "User Not Found",
-                    data: null,
-                });
-            }
+            if (!data) return res.status(404).json("User Not Found");
 
             // Si el usuario fue encontrado, lo devuelve con un mensaje de éxito.
             return res.status(200).json({
-                message: "User Fetched Successfully",
-                data: {
-                    id: data?.id,
-                    name: data?.name,
-                    surname: data?.surname,
-                    email: data?.email,
-                    role: {
-                        id: data?.role?.id,
-                        name: data?.role?.name,
-                    },
-                    createdAt: data.created_at,
+                id: data?.id,
+                name: data?.name,
+                surname: data?.surname,
+                email: data?.email,
+                role: {
+                    id: data?.role?.id,
+                    name: data?.role?.name,
                 },
+                createdAt: data.created_at,
             });
         } catch (error) {
             // Maneja cualquier error inesperado y devuelve un mensaje de error.
@@ -160,10 +144,9 @@ export class UserController {
 
             // Si el usuario ya existe, devuelve un mensaje de error.
             if (exists) {
-                return res.status(400).json({
-                    message: "User Already Exists",
-                    data: exists.name,
-                });
+                return res
+                    .status(400)
+                    .json(`User Already Exists: ${exists.name}`);
             }
 
             // Hashea la contraseña antes de guardarla en la base de datos.
@@ -178,27 +161,28 @@ export class UserController {
                 );
 
             // Si hubo un error al crear el usuario, devuelve un mensaje de error.
-            if (!data) {
-                return res.status(500).json({
-                    message: "Error Creating User",
-                    data: null,
-                });
-            }
+            if (!data)
+                return res.status(500).json("Error Creating User");
+
+            const newUserData: UserEntity | null =
+                await this.service.getById(data.id);
+
+            if (!newUserData)
+                return res
+                    .status(500)
+                    .json("Error Fetching New User Data");
 
             // Si el usuario fue creado correctamente, lo devuelve con un mensaje de éxito.
             return res.status(201).json({
-                message: "User Created Successfully",
-                data: {
-                    id: data?.id,
-                    name: data?.name,
-                    surname: data?.surname,
-                    email: data?.email,
-                    role: {
-                        id: data?.role?.id,
-                        name: data?.role?.name,
-                    },
-                    createdAt: data.created_at,
+                id: newUserData?.id,
+                name: newUserData?.name,
+                surname: newUserData?.surname,
+                email: newUserData?.email,
+                role: {
+                    id: newUserData?.role?.id,
+                    name: newUserData?.role?.name,
                 },
+                createdAt: newUserData?.created_at,
             });
         } catch (error) {
             // Maneja cualquier error inesperado y devuelve un mensaje de error.
@@ -226,12 +210,8 @@ export class UserController {
                 await this.service.getById(id);
 
             // Si no se encuentra el usuario, devuelve un error 404.
-            if (!toUpdate) {
-                return res.status(404).json({
-                    message: "User Not Found",
-                    data: null,
-                });
-            }
+            if (!toUpdate)
+                return res.status(404).json("User Not Found");
 
             // Convierte el cuerpo de la solicitud a una instancia del DTO de actualización de usuario.
             const dto: UpdateUserDto = plainToInstance(
@@ -270,12 +250,8 @@ export class UserController {
                 );
 
             // Si hubo un error al actualizar, devuelve un mensaje de error.
-            if (!updatedData) {
-                return res.status(500).json({
-                    message: "Error Updating User",
-                    data: null,
-                });
-            }
+            if (!updatedData)
+                return res.status(500).json("Error Updating User");
 
             // Llama al servicio para obtener el usuario actualizado por su ID.
             const data: UserEntity | null =
@@ -283,18 +259,15 @@ export class UserController {
 
             // Si la actualización fue exitosa, devuelve el usuario actualizado con un mensaje de éxito.
             return res.status(200).json({
-                message: "User Updated Successfully",
-                data: {
-                    id: data?.id,
-                    name: data?.name,
-                    surname: data?.surname,
-                    email: data?.email,
-                    role: {
-                        id: data?.role?.id,
-                        name: data?.role?.name,
-                    },
-                    createdAt: data?.created_at,
+                id: data?.id,
+                name: data?.name,
+                surname: data?.surname,
+                email: data?.email,
+                role: {
+                    id: data?.role?.id,
+                    name: data?.role?.name,
                 },
+                createdAt: data?.created_at,
             });
         } catch (error) {
             // Maneja cualquier error inesperado y devuelve un mensaje de error.
@@ -322,39 +295,18 @@ export class UserController {
                 await this.service.getById(id);
 
             // Si no se encuentra el usuario, devuelve un error 404.
-            if (!data) {
-                return res.status(404).json({
-                    message: "User Not Found",
-                    data: null,
-                });
-            }
+            if (!data) return res.status(404).json("User Not Found");
 
             // Llama al servicio para eliminar el usuario por su ID.
             const deleteResult = await this.service.deleteById(id);
 
             // Si hubo un error al eliminar el usuario, devuelve un mensaje de error.
-            if (!deleteResult) {
-                return res.status(500).json({
-                    message: "Error Deleting User",
-                    data: null,
-                });
-            }
+            if (!deleteResult) 
+                return res.status(500).json("Error Deleting User");
+            
 
             // Si el usuario fue eliminado exitosamente, devuelve un mensaje de éxito.
-            return res.status(200).json({
-                message: "User Deleted Successfully",
-                data: {
-                    id: data?.id,
-                    name: data?.name,
-                    surname: data?.surname,
-                    email: data?.email,
-                    role: {
-                        id: data?.role?.id,
-                        name: data?.role?.name,
-                    },
-                    createdAt: data.created_at,
-                },
-            });
+            return res.status(200).json("User Deleted Successfully");
         } catch (error) {
             // Maneja cualquier error inesperado y devuelve un mensaje de error.
             return res.status(500).json({

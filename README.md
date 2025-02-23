@@ -3,6 +3,7 @@
 
 # Update: 
 Limpie la info que devuelve cada endpoint para un manejo mas adecuado.
+los enpoints van sobre /api/v2
 
 Este proyecto es una implementación básica de autenticación y gestión de usuarios utilizando **Express.js**, **TypeScript** y **Node.js**. El objetivo es aprender y aplicar conceptos clave como autenticación, roles, protección de rutas, validación de datos y estructura modular.
 
@@ -43,7 +44,7 @@ Para instalar y ejecutar este proyecto, sigue los siguientes pasos:
 ### 1. Clona el Repositorio
 
 ```bash
-git clone https://github.com/jebcdev/basic-auth-management-ts.git
+git clone https://github.com/jebcdev/basic-auth-management-ts-v2.git
 ```
 
 ### 2. Instala las Dependencias
@@ -59,14 +60,14 @@ npm install
 Crea un nuevo archivo llamado `.env` y configura las variables según tu entorno. Algunas de las variables más importantes son:
 
 ```
-API_PREFIX="/api/v1"  # Prefijo de la API, útil para versionar las rutas y tener un punto común.
+API_PREFIX="/api2"  # Prefijo de la API, útil para versionar las rutas y tener un punto común.
 PORT=4000  # Puerto en el que el servidor estará escuchando.
 
 DB_HOST=localhost  # Host de la base de datos
 DB_PORT=3306  # Puerto de la base de datos
 DB_USERNAME=root  # Usuario de la base de datos
 DB_PASSWORD=your_database_password  # Contraseña de la base de datos (debería ser configurada por el usuario)
-DB_NAME=auth_management_db  # Nombre de la base de datos (más genérico)
+DB_NAME=basic-auth-management-ts-v2  # Nombre de la base de datos (más genérico)
 
 BCRYPT_SALT=10  # Valor para el "salt" que se usará al hashear las contraseñas con bcrypt.
 JWT_SECRET=your_jwt_secret_key  # Clave secreta para firmar y verificar tokens JWT. Mantenerla segura.
@@ -142,3 +143,5 @@ Este proyecto está bajo la Licencia MIT.
 ## Lista de Reproducción
 
 Puedes acceder a la lista de reproducción completa en [este enlace](https://www.youtube.com/playlist?list=PLek3UYLkoPpyDtmRYR9GditnbiwM_9S-1).
+
+En esa lista puedes ver como se construyo la primer versión!!!

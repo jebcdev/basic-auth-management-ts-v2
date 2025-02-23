@@ -16,7 +16,7 @@ export class Server {
     constructor() {
         this.app = express();
         this.port = parseInt(process.env.PORT || "4000", 10) || 4000;
-        this.apiPrefix = process.env.API_PREFIX || "/api/v1";
+        this.apiPrefix = process.env.API_PREFIX || "/api/v2";
         this.middlewares(); // Llama al método de middlewares
         this.routes(); // Llama al método de rutas
     }

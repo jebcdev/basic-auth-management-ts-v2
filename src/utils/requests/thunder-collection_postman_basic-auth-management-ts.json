@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "45b1c35e-4e0b-4c83-8c8f-721bd5903ff1",
+        "_postman_id": "88328293-d15a-4575-84ab-dbca05f53615",
         "name": "basic-auth-management-ts",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": ""
@@ -14,10 +14,10 @@
                     "request": {
                         "method": "GET",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/",
+                            "raw": "http://localhost:4000/api/v2/",
                             "path": [
                                 "api",
-                                "v1"
+                                "v2"
                             ],
                             "protocol": "http",
                             "host": [
@@ -38,10 +38,10 @@
                     "request": {
                         "method": "POST",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/seed/rolesusers",
+                            "raw": "http://localhost:4000/api/v2/seed/rolesusers",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "seed",
                                 "rolesusers"
                             ],
@@ -69,10 +69,10 @@
                     "request": {
                         "method": "GET",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/roles",
+                            "raw": "http://localhost:4000/api/v2/roles",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "roles"
                             ],
                             "protocol": "http",
@@ -92,7 +92,7 @@
                             "bearer": [
                                 {
                                     "key": "token",
-                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3Mzg3NTQzNTYsImV4cCI6MTczODc1Nzk1Nn0._KgrJZ7jiCy6313p2ZRrzyruKn0yAvhs395fEf5uyBs",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3NDAzMTkwMTAsImV4cCI6MTc0MDMyMjYxMH0.uVBz4UlORV1ZvQF08JQa-km0pHX4IbR-U3HyYzpVjrc",
                                     "type": "string"
                                 }
                             ]
@@ -104,10 +104,10 @@
                     "request": {
                         "method": "GET",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/roles/1",
+                            "raw": "http://localhost:4000/api/v2/roles/1",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "roles",
                                 "1"
                             ],
@@ -116,6 +116,16 @@
                                 "localhost"
                             ],
                             "port": "4000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3NDAzMTkwMTAsImV4cCI6MTc0MDMyMjYxMH0.uVBz4UlORV1ZvQF08JQa-km0pHX4IbR-U3HyYzpVjrc",
+                                    "type": "string"
+                                }
+                            ]
                         }
                     }
                 },
@@ -124,10 +134,10 @@
                     "request": {
                         "method": "POST",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/roles/",
+                            "raw": "http://localhost:4000/api/v2/roles/",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "roles"
                             ],
                             "protocol": "http",
@@ -143,7 +153,17 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"name\":\"User\",\n  \"description\":\"Regular System User\"\n}"
+                            "raw": "{\n  \"name\":\"Userr\",\n  \"description\":\"Regular System User\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3NDAzMTkwMTAsImV4cCI6MTc0MDMyMjYxMH0.uVBz4UlORV1ZvQF08JQa-km0pHX4IbR-U3HyYzpVjrc",
+                                    "type": "string"
+                                }
+                            ]
                         }
                     }
                 },
@@ -152,12 +172,12 @@
                     "request": {
                         "method": "PATCH",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/roles/3",
+                            "raw": "http://localhost:4000/api/v2/roles/1",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "roles",
-                                "3"
+                                "1"
                             ],
                             "protocol": "http",
                             "host": [
@@ -173,6 +193,16 @@
                                 }
                             },
                             "raw": "{\n   \"description\":\"System Administrator\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3NDAzMTkwMTAsImV4cCI6MTc0MDMyMjYxMH0.uVBz4UlORV1ZvQF08JQa-km0pHX4IbR-U3HyYzpVjrc",
+                                    "type": "string"
+                                }
+                            ]
                         }
                     }
                 },
@@ -181,12 +211,12 @@
                     "request": {
                         "method": "DELETE",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/roles/1",
+                            "raw": "http://localhost:4000/api/v2/roles/4",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "roles",
-                                "1"
+                                "4"
                             ],
                             "protocol": "http",
                             "host": [
@@ -199,7 +229,7 @@
                             "bearer": [
                                 {
                                     "key": "token",
-                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjIsInVzZXJfaWQiOjJ9LCJpYXQiOjE3Mzg3NTQyOTcsImV4cCI6MTczODc1Nzg5N30.X2A_u-AOTcgBSi-BSyUHnRMdXXNMlS5MVB7Vckn7H4g",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3NDAzMTkwMTAsImV4cCI6MTc0MDMyMjYxMH0.uVBz4UlORV1ZvQF08JQa-km0pHX4IbR-U3HyYzpVjrc",
                                     "type": "string"
                                 }
                             ]
@@ -216,10 +246,10 @@
                     "request": {
                         "method": "GET",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/users",
+                            "raw": "http://localhost:4000/api/v2/users",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "users"
                             ],
                             "protocol": "http",
@@ -233,7 +263,17 @@
                                 "key": "Accept",
                                 "value": "application/json"
                             }
-                        ]
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3NDAzMTkwMTAsImV4cCI6MTc0MDMyMjYxMH0.uVBz4UlORV1ZvQF08JQa-km0pHX4IbR-U3HyYzpVjrc",
+                                    "type": "string"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
@@ -241,10 +281,10 @@
                     "request": {
                         "method": "GET",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/users/1",
+                            "raw": "http://localhost:4000/api/v2/users/1",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "users",
                                 "1"
                             ],
@@ -253,6 +293,16 @@
                                 "localhost"
                             ],
                             "port": "4000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3NDAzMTkwMTAsImV4cCI6MTc0MDMyMjYxMH0.uVBz4UlORV1ZvQF08JQa-km0pHX4IbR-U3HyYzpVjrc",
+                                    "type": "string"
+                                }
+                            ]
                         }
                     }
                 },
@@ -261,10 +311,10 @@
                     "request": {
                         "method": "POST",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/users/",
+                            "raw": "http://localhost:4000/api/v2/users/",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "users"
                             ],
                             "protocol": "http",
@@ -280,14 +330,14 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"name\":\"Administrator\",\n  \"surname\":\"System\",\n  \"email\":\"admin@admin.commm\",\n  \"password\":\"12345678\",\n  \"role_id\":1\n}"
+                            "raw": "{\n  \"name\":\"Administrator\",\n  \"surname\":\"System\",\n  \"email\":\"admin@admin.co\",\n  \"password\":\"12345678\",\n  \"role_id\":1\n}"
                         },
                         "auth": {
                             "type": "bearer",
                             "bearer": [
                                 {
                                     "key": "token",
-                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3Mzg3NTQzNTYsImV4cCI6MTczODc1Nzk1Nn0._KgrJZ7jiCy6313p2ZRrzyruKn0yAvhs395fEf5uyBs",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3NDAzMTkwMTAsImV4cCI6MTc0MDMyMjYxMH0.uVBz4UlORV1ZvQF08JQa-km0pHX4IbR-U3HyYzpVjrc",
                                     "type": "string"
                                 }
                             ]
@@ -299,10 +349,10 @@
                     "request": {
                         "method": "PATCH",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/users/1",
+                            "raw": "http://localhost:4000/api/v2/users/1",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "users",
                                 "1"
                             ],
@@ -320,6 +370,16 @@
                                 }
                             },
                             "raw": "{\n    \"password\":\"12345678\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3NDAzMTkwMTAsImV4cCI6MTc0MDMyMjYxMH0.uVBz4UlORV1ZvQF08JQa-km0pHX4IbR-U3HyYzpVjrc",
+                                    "type": "string"
+                                }
+                            ]
                         }
                     }
                 },
@@ -328,10 +388,10 @@
                     "request": {
                         "method": "DELETE",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/users/4",
+                            "raw": "http://localhost:4000/api/v2/users/4",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "users",
                                 "4"
                             ],
@@ -355,7 +415,7 @@
                             "bearer": [
                                 {
                                     "key": "token",
-                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3Mzg3NTQzNTYsImV4cCI6MTczODc1Nzk1Nn0._KgrJZ7jiCy6313p2ZRrzyruKn0yAvhs395fEf5uyBs",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3NDAzMTkwMTAsImV4cCI6MTc0MDMyMjYxMH0.uVBz4UlORV1ZvQF08JQa-km0pHX4IbR-U3HyYzpVjrc",
                                     "type": "string"
                                 }
                             ]
@@ -372,10 +432,10 @@
                     "request": {
                         "method": "POST",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/auth/login",
+                            "raw": "http://localhost:4000/api/v2/auth/login",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "auth",
                                 "login"
                             ],
@@ -407,10 +467,10 @@
                     "request": {
                         "method": "POST",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/auth/profile",
+                            "raw": "http://localhost:4000/api/v2/auth/profile",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "auth",
                                 "profile"
                             ],
@@ -431,7 +491,7 @@
                             "bearer": [
                                 {
                                     "key": "token",
-                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3Mzg2MTk4OTksImV4cCI6MTczODYyMzQ5OX0.57t96OOZaYcx9KIk3MvNL7K3D3bA49LquAXP-XASepQ",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InJvbGVfaWQiOjEsInVzZXJfaWQiOjF9LCJpYXQiOjE3NDAzMTkwMTAsImV4cCI6MTc0MDMyMjYxMH0.uVBz4UlORV1ZvQF08JQa-km0pHX4IbR-U3HyYzpVjrc",
                                     "type": "string"
                                 }
                             ]
@@ -443,10 +503,10 @@
                     "request": {
                         "method": "POST",
                         "url": {
-                            "raw": "http://localhost:4000/api/v1/auth/register",
+                            "raw": "http://localhost:4000/api/v2/auth/register",
                             "path": [
                                 "api",
-                                "v1",
+                                "v2",
                                 "auth",
                                 "register"
                             ],
@@ -469,7 +529,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"name\":\"Guest\",\n  \"surname\":\"Guest User\",\n  \"email\":\"guest@guest.com\",\n  \"password\":\"12345678\",\n  \"role_id\":1\n}"
+                            "raw": "{\n  \"name\":\"Guestt\",\n  \"surname\":\"Guestt User\",\n  \"email\":\"guestt@guest.com\",\n  \"password\":\"12345678\",\n  \"role_id\":1\n}"
                         },
                         "auth": {
                             "type": "bearer",

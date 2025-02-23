@@ -6,7 +6,7 @@ export class RootController {
 
     // Constructor que inicializa el prefijo de la API
     constructor() {
-        this.apiPrefix = process.env.API_PREFIX || "/api/v1";
+        this.apiPrefix = process.env.API_PREFIX || "/api/v2";
     }
 
     // Método para manejar la solicitud a la ruta raíz
@@ -14,15 +14,11 @@ export class RootController {
         try {
             // Enviar respuesta exitosa al cliente
 
-            res.status(200).json({
-                message: "Welcome to the API",
-                data: {
-                    version: "0.0.2",
-                    author: "{ JEBC-DeV }",
-                    description:
-                        "API RESTful with TypeScript, Node.js, Express",
-                    contact: "@jebcdev",
-                },
+            res.status(200).json({version: "0.0.3",
+                author: "{ JEBC-DeV }",
+                description:
+                    "API RESTful with TypeScript, Node.js, Express",
+                contact: "@jebcdev",
             });
         } catch (error) {
             console.error("RootController root method error:", error);

@@ -16,7 +16,7 @@ export class RootRoutes {
     // Constructor que inicializa las rutas y controladores
     constructor() {
         this.router = Router(); // Inicializa el enrutador
-        this.apiPrefix = process.env.API_PREFIX || "/api/v1"; // Prefijo de la API
+        this.apiPrefix = process.env.API_PREFIX || "/api/v2"; // Prefijo de la API
         this.initializeRoutes(); // Llama al método para inicializar las rutas
     }
 
