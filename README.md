@@ -6,7 +6,7 @@ Limpie la info que devuelve cada endpoint para un manejo mas adecuado.
 
 Este proyecto es una implementación básica de autenticación y gestión de usuarios utilizando **Express.js**, **TypeScript** y **Node.js**. El objetivo es aprender y aplicar conceptos clave como autenticación, roles, protección de rutas, validación de datos y estructura modular.
 
-## Tecnologías Utilizadas
+## Tecnologías Utilizadas:
 
 - **Express.js**: Framework para Node.js utilizado para la creación de APIs.
 - **TypeScript**: Superset de JavaScript que añade tipado estático.
@@ -15,7 +15,7 @@ Este proyecto es una implementación básica de autenticación y gestión de usu
 - **TypeORM**: ORM para trabajar con bases de datos SQL.
 - **MySQL**: Sistema de gestión de bases de datos.
 
-## Estructura del Proyecto
+## Estructura del Proyecto:
 
 ```
 src/
