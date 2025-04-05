@@ -218,4 +218,52 @@ export class AuthController {
             });
         }
     }
+
+    public async checkToken(
+        req: Request,
+        res: Response
+    ):Promise<Response>{
+        try {
+            const token: string = req.headers.authorization?.split(
+                " "
+            )[1] as string;
+
+             // If no token provided, return unauthorized
+        if (!token) 
+            return res.status(401).json({
+                valid: false,
+                message: "No token provided"
+            });
+
+            // Verify the token using JwtUtil
+        const decoded = await JwtUtil.verifyToken(token);
+
+         // If token is invalid, decoded will be null or undefined
+         if (!decoded) 
+            return res.status(401).json({
+                valid: false,
+                message: "Invalid token"
+            });
+ // Extract user ID and role ID from the decoded token
+ const user_id: number = Number(decoded?.data?.user_id);
+ const role_id: number = Number(decoded?.data?.role_id);
+
+  // Return success with token information
+  return res.status(200).json({
+    valid: true,
+    message: "Token is valid",
+    data: {
+        user_id,
+        role_id,
+        expires: decoded.exp
+    }
+});
+        } catch (error) {
+            console.error("Error checking token:", error);
+            return res.status(401).json({
+                valid: false,
+                message: "Invalid token"
+            });
+        }
+    }
 }
